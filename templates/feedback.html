@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Feedback — StarBuks</title>
+
+  <link href="../static/css/style.css" rel="stylesheet">
+  <link href="../static/css/toggles.css" rel="stylesheet">
+</head>
+
+<body class="page feedback-body">
+
+  <header class="site-header">
+    <h1 class="logo">StarBuks</h1>
+
+    <nav class="header-nav">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#atmosphere">Atmosphere</a>
+      <a href="index.html#menu">Menu</a>
+      <a href="index.html#loyalty">Loyalty</a>
+      <a href="index.html#hours">Hours</a>
+      <a href="index.html#contacts">Contacts</a>
+      <a href="feedback.html" class="nav-link">Feedback</a>
+      <a href="animation3.html" class="order-coffee-btn">
+        Order a home
+      </a>
+    </nav>
+
+    <div class="header-actions">
+    </div>
+  </header>
+
+  <main class="feedback-page">
+
+    <section class="feedback-box">
+
+      <div class="feedback-header">
+
+        <h2>Contact Us</h2>
+
+        <p>
+          Have a question or suggestion? Send us a message.
+        </p>
+
+      </div>
+
+      <form class="feedback-form" id="feedbackForm">
+
+        <div class="feedback-group">
+
+          <label class="feedback-label" for="name">
+            Name
+          </label>
+
+          <input class="feedback-input" type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        </div>
+
+        <div class="feedback-group">
+
+          <label class="feedback-label" for="email">
+            Email
+          </label>
+
+          <input class="feedback-input" type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        </div>
+
+        <div class="feedback-group">
+
+          <label class="feedback-label" for="subject">
+            Subject
+          </label>
+
+          <input class="feedback-input" type="text" id="subject" name="subject" placeholder="Enter the subject"
+            required>
+
+        </div>
+
+        <div class="feedback-group">
+
+          <label class="feedback-label" for="message">
+            Message
+          </label>
+
+          <textarea class="feedback-input feedback-textarea" id="message" name="message"
+            placeholder="Write your message..." rows="6" required></textarea>
+
+        </div>
+
+        <div class="feedback-switches">
+
+          <div class="feedback-switch">
+            <span class="feedback-switch-text" id="replyByEmailText">Send me a reply by email</span>
+            <div class="toggle normal">
+              <input id="replyByEmail" name="replyByEmail" type="checkbox" aria-labelledby="replyByEmailText">
+              <label class="toggle-item" for="replyByEmail"></label>
+            </div>
+          </div>
+
+          <div class="feedback-switch">
+            <span class="feedback-switch-text" id="subscribeNewsText">Subscribe to news</span>
+            <div class="toggle normal">
+              <input id="subscribeNews" name="subscribeNews" type="checkbox" aria-labelledby="subscribeNewsText">
+              <label class="toggle-item" for="subscribeNews"></label>
+            </div>
+          </div>
+
+        </div>
+
+        <button class="feedback-button" type="submit">
+          Send message
+        </button>
+
+      </form>
+
+      <div class="feedback-success" id="feedbackSuccess">
+
+        <h3>Thank you!</h3>
+
+        <p>
+          Your message has been sent successfully.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+
+    <p class="footer-item">
+      Main office: St-Petersburg, street Random, house 21, office 20
+    </p>
+
+    <p class="footer-heading">
+      Contacts
+    </p>
+
+    <p class="footer-item">
+      Telegram:
+    </p>
+
+    <p class="footer-item">
+      Mail:
+    </p>
+
+    <p class="footer-item">
+      Phone:
+    </p>
+
+  </footer>
+
+  <script src="../static/js/feedback.js"></script>
+
+</body>
+
+</html>

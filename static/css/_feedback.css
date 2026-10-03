@@ -1,0 +1,183 @@
+.feedback-body {
+  min-height: 100vh;
+  background-color: #f4f1eb;
+}
+
+.feedback-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px 20px;
+}
+
+.feedback-box {
+  width: 100%;
+  max-width: 560px;
+
+  padding: 32px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #ded8ce;
+  border-radius: 14px;
+
+  box-shadow: 0 8px 24px rgba(70, 50, 30, 0.15);
+
+  box-sizing: border-box;
+}
+
+.feedback-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.feedback-header h2 {
+  margin-bottom: 8px;
+
+  font-size: 1.7rem;
+  color: #3e3025;
+}
+
+.feedback-header p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+
+  color: #806f60;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.feedback-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.feedback-label {
+  font-size: 0.9rem;
+  color: #4a382b;
+}
+
+.feedback-input {
+  width: 100%;
+
+  padding: 11px 13px;
+
+  font: inherit;
+  color: #3e3025;
+
+  background-color: #faf8f4;
+
+  border: 1px solid #cfc5b8;
+  border-radius: 6px;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.feedback-input::placeholder {
+  color: #a99d90;
+}
+
+.feedback-input:focus {
+  border-color: #6f8f72;
+  background-color: #ffffff;
+}
+
+.feedback-textarea {
+  min-height: 140px;
+
+  resize: vertical;
+
+  line-height: 1.5;
+}
+
+.feedback-button {
+  width: 100%;
+
+  margin-top: 4px;
+
+  padding: 12px;
+
+  font: inherit;
+  font-weight: 600;
+
+  color: #ffffff;
+
+  background-color: #58745b;
+
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.feedback-button:hover {
+  background-color: #456149;
+}
+
+.feedback-button:active {
+  transform: translateY(1px);
+}
+
+.feedback-success {
+  display: none;
+
+  margin-top: 22px;
+  padding: 16px;
+
+  text-align: center;
+
+  background-color: #f4f1eb;
+
+  border: 1px solid #ded8ce;
+  border-radius: 8px;
+}
+
+.feedback-success.active {
+  display: block;
+}
+
+.feedback-success h3 {
+  margin-bottom: 6px;
+
+  color: #58745b;
+  font-size: 1.1rem;
+}
+
+.feedback-success p {
+  color: #806f60;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+
+  .feedback-page {
+    padding: 40px 16px;
+  }
+
+  .feedback-box {
+    padding: 24px 20px;
+  }
+
+  .feedback-header h2 {
+    font-size: 1.5rem;
+  }
+
+}

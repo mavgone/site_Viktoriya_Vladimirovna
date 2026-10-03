@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Menu — StarBuks</title>
+
+  <link href="../static/css/style.css" rel="stylesheet">
+
+  <script src="https://widget.cloudpayments.ru/bundles/cloudpayments.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.9/jspdf.plugin.autotable.min.js"></script>
+  <script src="../static/js/tableHTMLExport.js"></script>
+  <script src="../static/js/saveAsExcel.js"></script>
+</head>
+
+<body class="page menu-body">
+
+  <header class="site-header">
+    <h1 class="logo">StarBuks</h1>
+
+    <nav class="header-nav">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#atmosphere">Atmosphere</a>
+      <a href="index.html#menu">Menu</a>
+      <a href="index.html#loyalty">Loyalty</a>
+      <a href="index.html#hours">Hours</a>
+      <a href="index.html#contacts">Contacts</a>
+      <a href="feedback.html" class="nav-link">Feedback</a>
+      <a href="animation3.html" class="order-coffee-btn">
+        Order a home
+      </a>
+    </nav>
+
+    <div class="header-actions">
+    </div>
+  </header>
+
+  <main class="menu-page">
+
+    <section class="menu-section">
+
+      <div class="menu-header">
+
+        <h2 class="menu-title">
+          Our Menu
+        </h2>
+
+        <p class="menu-description">
+          Choose your favorite drink or discover something new.
+        </p>
+
+      </div>
+
+      <div class="menu-tools">
+
+        <form class="search-form" id="searchForm" role="search">
+          <input class="search-input" type="text" id="searchInput" placeholder="Search" aria-label="Search menu">
+          <button class="search-button" type="submit">OK</button>
+        </form>
+
+        <div class="export-bar">
+          <button class="export-button" type="button" onclick="saveAsExcel('menu-table', 'menu.xls')">
+            Export to Excel
+          </button>
+          <button class="export-button" type="button" onclick="exportPdf()">
+            Export to PDF
+          </button>
+        </div>
+
+      </div>
+
+      <div class="menu-table-wrapper">
+
+        <table class="menu-table" id="menu-table">
+
+          <thead class="menu-table-head">
+
+            <tr>
+              <th class="menu-table-heading sortable" onclick="sortTable(0)">Category</th>
+              <th class="menu-table-heading sortable" onclick="sortTable(1)">Item</th>
+              <th class="menu-table-heading sortable" onclick="sortTable(2)">Size</th>
+              <th class="menu-table-heading sortable" onclick="sortTable(3)">Price</th>
+              <th class="menu-table-heading no-export">Action</th>
+            </tr>
+
+          </thead>
+
+          <tbody class="menu-table-body">
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Coffee</td>
+              <td class="menu-item">Espresso</td>
+              <td class="menu-size">Small</td>
+              <td class="menu-price">$2.50</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Espresso" data-price="250">Pay</button>
+              </td>
+            </tr>
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Coffee</td>
+              <td class="menu-item">Americano</td>
+              <td class="menu-size">Medium</td>
+              <td class="menu-price">$3.00</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Americano" data-price="300">Pay</button>
+              </td>
+            </tr>
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Coffee</td>
+              <td class="menu-item">Cappuccino</td>
+              <td class="menu-size">Medium</td>
+              <td class="menu-price">$4.00</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Cappuccino" data-price="400">Pay</button>
+              </td>
+            </tr>
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Coffee</td>
+              <td class="menu-item">Latte</td>
+              <td class="menu-size">Large</td>
+              <td class="menu-price">$4.50</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Latte" data-price="450">Pay</button>
+              </td>
+            </tr>
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Cold Drinks</td>
+              <td class="menu-item">Iced Latte</td>
+              <td class="menu-size">Medium</td>
+              <td class="menu-price">$4.50</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Iced Latte" data-price="450">Pay</button>
+              </td>
+            </tr>
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Cold Drinks</td>
+              <td class="menu-item">Cold Brew</td>
+              <td class="menu-size">Large</td>
+              <td class="menu-price">$4.00</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Cold Brew" data-price="400">Pay</button>
+              </td>
+            </tr>
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Cold Drinks</td>
+              <td class="menu-item">Iced Americano</td>
+              <td class="menu-size">Large</td>
+              <td class="menu-price">$3.50</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Iced Americano" data-price="350">Pay</button>
+              </td>
+            </tr>
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Tea</td>
+              <td class="menu-item">Black Tea</td>
+              <td class="menu-size">Medium</td>
+              <td class="menu-price">$2.50</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Black Tea" data-price="250">Pay</button>
+              </td>
+            </tr>
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Tea</td>
+              <td class="menu-item">Green Tea</td>
+              <td class="menu-size">Medium</td>
+              <td class="menu-price">$2.50</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Green Tea" data-price="250">Pay</button>
+              </td>
+            </tr>
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Tea</td>
+              <td class="menu-item">Herbal Tea</td>
+              <td class="menu-size">Large</td>
+              <td class="menu-price">$3.00</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Herbal Tea" data-price="300">Pay</button>
+              </td>
+            </tr>
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Desserts</td>
+              <td class="menu-item">Cheesecake</td>
+              <td class="menu-size">Piece</td>
+              <td class="menu-price">$4.50</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Cheesecake" data-price="450">Pay</button>
+              </td>
+            </tr>
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Desserts</td>
+              <td class="menu-item">Chocolate Cake</td>
+              <td class="menu-size">Piece</td>
+              <td class="menu-price">$4.00</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Chocolate Cake" data-price="400">Pay</button>
+              </td>
+            </tr>
+
+            <tr class="menu-table-row">
+              <td class="menu-category">Desserts</td>
+              <td class="menu-item">Croissant</td>
+              <td class="menu-size">Piece</td>
+              <td class="menu-price">$3.00</td>
+              <td class="no-export">
+                <button class="pay-button" type="button" data-item="Croissant" data-price="300">Pay</button>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+
+    <p class="footer-item">
+      Main office: St-Petersburg, street Random, house 21, office 20
+    </p>
+
+    <p class="footer-heading">
+      Contacts
+    </p>
+
+    <p class="footer-item">
+      Telegram:
+    </p>
+
+    <p class="footer-item">
+      Mail:
+    </p>
+
+    <p class="footer-item">
+      Phone:
+    </p>
+
+  </footer>
+
+  <script src="../static/js/payment.js"></script>
+  <script src="../static/js/table-tools.js"></script>
+
+</body>
+
+</html>
